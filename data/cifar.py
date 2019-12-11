@@ -10,7 +10,7 @@ from torch.utils.data import Dataset
 
 from utils import download_file_from_google_drive
 
-GDRIVE_HASH = '10yVzRsnBnvsuhbGVg54IFSKTWhVAwBxr'
+GDRIVE_HASH = '1lM9kRTbeXc5ExdWmKFdO-ryW2DXTSOLK'
 DATASET_DIR = './cifar10/dataset'
 
 
@@ -39,12 +39,12 @@ class CifarDataset(Dataset):
         # Download dataset
         if not os.path.isdir(os.path.join(DATASET_DIR, mode)):
             print('Dowloading CIFAR10 dataset..')
-            zip_filename = 'tmp.zip'
+            zip_filename = os.path.join(DATASET_DIR, 'tmp.zip')
             download_file_from_google_drive(GDRIVE_HASH, zip_filename)
             # Unzip train and val files
             with zipfile.ZipFile(zip_filename, 'r') as zip_file:
                 zip_file.extractall()
-                print(f'CIFAR10 data downloaded in {DATASET_DIR}.\n')
+                print(f'CIFAR10 dataset downloaded to {DATASET_DIR}.\n')
             # Delete zip file
             os.remove(zip_filename)
 
