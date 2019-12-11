@@ -38,12 +38,13 @@ class CifarDataset(Dataset):
 
         # Download dataset
         if not os.path.isdir(os.path.join(DATASET_DIR, mode)):
-            print('Dowloading CIFAR10 dataset..')
+            print('Downloading CIFAR10 dataset..')
+            os.makedirs(DATASET_DIR)
             zip_filename = os.path.join(DATASET_DIR, 'tmp.zip')
             download_file_from_google_drive(GDRIVE_HASH, zip_filename)
             # Unzip train and val files
             with zipfile.ZipFile(zip_filename, 'r') as zip_file:
-                zip_file.extractall()
+                zip_file.extractall(DATASET_DIR)
                 print(f'CIFAR10 dataset downloaded to {DATASET_DIR}.\n')
             # Delete zip file
             os.remove(zip_filename)
