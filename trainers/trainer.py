@@ -142,6 +142,7 @@ class Trainer:
             self.visualise(batch, output, 'train')
 
     def train(self):
+        print('Starting training session..')
         self.model.train()
 
         self.start_time = time()

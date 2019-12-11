@@ -4,5 +4,5 @@
 *.pyc
 *.pyo
 
-# CIFAR10 data
+# CIFAR10 dataset and experiments
 /cifar10

@@ -1,5 +1,5 @@
-output_path: '/data/cvfs/ah2029/experiments/cifar/baseline/'
-tag: 'own_model_bn'
+output_path: './cifar10/experiments/'
+tag: 'baseline'
 
 batch_size: 128
 n_iterations: 10000

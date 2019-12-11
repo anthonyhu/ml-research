@@ -77,7 +77,6 @@ def download_file_from_google_drive(id, destination):
                 if chunk:  # filter out keep-alive new chunks
                     f.write(chunk)
 
-    print(f'Downloading google drive file with id: {id} to {destination}')
     url = "https://docs.google.com/uc?export=download"
     with requests.Session() as session:
         response = session.get(url, params={'id': id}, stream=True)
@@ -88,4 +87,3 @@ def download_file_from_google_drive(id, destination):
             response = session.get(url, params=params, stream=True)
 
     save_response_content(response, destination)
-    print('Done.')
