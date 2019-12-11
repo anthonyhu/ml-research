@@ -1,0 +1,8 @@
+/.idea
+*.ipynb
+
+*.pyc
+*.pyo
+
+# CIFAR10 data
+/cifar10

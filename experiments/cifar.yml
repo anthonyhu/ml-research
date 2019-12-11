@@ -1,0 +1,14 @@
+output_path: '/data/cvfs/ah2029/experiments/cifar/baseline/'
+tag: 'own_model_bn'
+
+batch_size: 128
+n_iterations: 10000
+print_iterations: 100
+vis_iterations: 500
+val_iterations: 500
+n_workers: 4
+gpu: True
+
+# Optimiser
+learning_rate: 0.001
+weight_decay: 0.0001

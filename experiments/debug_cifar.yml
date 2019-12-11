@@ -1,0 +1,13 @@
+output_path: '/data/cvfs/ah2029/experiments/cifar/debug/'
+tag: 'debug'
+
+batch_size: 32
+n_iterations: 100
+print_iterations: 25
+vis_iterations: 50
+val_iterations: 50
+n_workers: 2
+gpu: True
+
+learning_rate: 0.001
+weight_decay: 0.0001
