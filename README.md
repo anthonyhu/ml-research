@@ -1,6 +1,6 @@
 # ML research
 
-This repository is the machine learning codebase as detailed in the following 
+This repository is the machine learning codebase as described in the following 
 [guide](https://anthonyhu.github.io/research-workflow), which contains good practices 
 for a machine learning researcher to structure day-to-day work.
 

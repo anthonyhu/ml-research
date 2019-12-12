@@ -13,9 +13,9 @@ class CifarTrainer(Trainer):
         self.train_dataset = CifarDataset(mode='train')
         self.val_dataset = CifarDataset(mode='val')
 
-        self.train_dataloader = DataLoader(self.train_dataset, batch_size=self.config.batch_size,
+        self.train_dataloader = DataLoader(self.train_dataset, self.config.batch_size,
                                            num_workers=self.config.n_workers, shuffle=True)
-        self.val_dataloader = DataLoader(self.val_dataset, batch_size=self.config.batch_size,
+        self.val_dataloader = DataLoader(self.val_dataset, self.config.batch_size,
                                          num_workers=self.config.n_workers, shuffle=False)
 
     def create_model(self):
@@ -26,7 +26,7 @@ class CifarTrainer(Trainer):
 
     def create_optimiser(self):
         parameters_with_grad = filter(lambda p: p.requires_grad, self.model.parameters())
-        self.optimiser = Adam(parameters_with_grad, lr=self.config.learning_rate, weight_decay=self.config.weight_decay)
+        self.optimiser = Adam(parameters_with_grad, self.config.learning_rate, weight_decay=self.config.weight_decay)
 
     def create_metrics(self):
         self.train_metrics = AccuracyMetrics('train', self.tensorboard, self.session_name)
