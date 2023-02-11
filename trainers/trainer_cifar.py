@@ -2,16 +2,18 @@ import torch.nn as nn
 from torch.optim import Adam
 from torch.utils.data import DataLoader
 
-from trainers.trainer import Trainer
-from data.cifar import CifarDataset
-from models.cifar import CifarModel
+from data.cifar_dataset import CifarDataset
 from metrics.classification import AccuracyMetrics
+from models.cifar import CifarModel
+from trainers.trainer import Trainer
+
+DATASET_ROOT = './cifar10/dataset'
 
 
 class CifarTrainer(Trainer):
     def create_data(self):
-        self.train_dataset = CifarDataset(mode='train')
-        self.val_dataset = CifarDataset(mode='val')
+        self.train_dataset = CifarDataset(DATASET_ROOT, train=True, download=True)
+        self.val_dataset = CifarDataset(DATASET_ROOT, train=False, download=True)
 
         self.train_dataloader = DataLoader(self.train_dataset, self.config.batch_size,
                                            num_workers=self.config.n_workers, shuffle=True)

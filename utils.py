@@ -1,8 +1,8 @@
 import os
 import sys
-import git
-import requests
 from argparse import Namespace
+
+import git
 
 
 class Config(Namespace):
@@ -61,29 +61,3 @@ def count_n_parameters(model, only_trainable=False):
     else:
         n_parameters = sum([p.numel() for p in model.parameters()])
     return n_parameters / 10**6
-
-
-def download_file_from_google_drive(id, destination):
-    def get_confirm_token(response):
-        for key, value in response.cookies.items():
-            if key.startswith('download_warning'):
-                return value
-        return None
-
-    def save_response_content(response, destination):
-        chunk_size = 32768
-        with open(destination, "wb") as f:
-            for chunk in response.iter_content(chunk_size):
-                if chunk:  # filter out keep-alive new chunks
-                    f.write(chunk)
-
-    url = "https://docs.google.com/uc?export=download"
-    with requests.Session() as session:
-        response = session.get(url, params={'id': id}, stream=True)
-        token = get_confirm_token(response)
-
-        if token:
-            params = {'id': id, 'confirm': token}
-            response = session.get(url, params=params, stream=True)
-
-    save_response_content(response, destination)

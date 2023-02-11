@@ -5,7 +5,7 @@ This repository is the machine learning codebase as described in the following
 for a machine learning researcher to structure day-to-day work.
 
 ## Quick start
-* Clone the repo and create a [conda environment](https://anthonyhu.github.io/python-environment) with `conda env create`.
+* Clone the repo and create a [conda environment](https://anthonyhu.github.io/python-environment) by running: `conda env create`.
 * Run training with `python run_training.py --config experiments/cifar.yml`. This will download CIFAR10 data in a new
 folder `./cifar10/dataset` and save the experiment outputs in `./cifar10/experiments/`.
 

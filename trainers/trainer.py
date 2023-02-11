@@ -1,14 +1,14 @@
-import os
-import sys
 import datetime
+import os
 import socket
+import sys
+import yaml
 from abc import ABCMeta, abstractmethod
 from time import time
 
-import yaml
 import torch
+from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
-from tensorboardX import SummaryWriter
 
 from utils import Config, Logger, format_time, print_model_spec, get_git_hash
 

@@ -1,13 +1,13 @@
 output_path: './cifar10/experiments/'
 tag: 'debug'
 
-batch_size: 32
-n_iterations: 100
-print_iterations: 25
-vis_iterations: 50
-val_iterations: 50
+batch_size: 8
+n_iterations: 16
+print_iterations: 2
+vis_iterations: 8
+val_iterations: 8
 n_workers: 4
-gpu: True
+gpu: False
 
 # Optimiser
 learning_rate: 0.001
